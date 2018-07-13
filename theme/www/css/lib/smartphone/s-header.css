@@ -1,0 +1,35 @@
+/*
+blue: #00027a;
+red:  #ee191b;
+*/
+
+#header {position: relative; background: #ee191b; padding: 0 0 10px;
+	display: none;
+}
+#header div.logo {z-index: 10; height: 60px; 
+	background: url("/img/gx_logo_front.png") no-repeat bottom center; background-size: auto 100%;
+}
+#header > ul.servicenavigation li.navigation {position: absolute; top: 0; right: 0; width: 50px; height: 50px; background-repeat: no-repeat; background-position: center center;
+	background-image: url("/img/gx_nav_icon_blue.png");
+}
+
+
+/*#header #navigation { position: fixed; top:0; width: 100%; z-index: 99; border-bottom:1px solid pink;}*/
+#navigation {display: none; position: absolute; top: 70px; width: 100%; z-index: 99; padding: 10px 0; background-color: #00027a;}
+
+#navigation ul.primary li {display: block; text-align: center;}
+#navigation ul.primary li a {font-size: 20px; display: block; padding: 10px 0; text-transform: uppercase; color: #ee191b;
+	font-family:'Roboto', Arial, sans-serif; font-weight: 900; font-style: italic;
+/*	font-family:'HelveticaNeueW02-BlackC', Arial, sans-serif;*/
+}
+
+#navigation ul.servicenavigation {margin: 15px 0;}
+#navigation ul.servicenavigation li {display: block; padding: 10px 0;}
+#navigation ul.servicenavigation li a {display: block; height: 40px; background-repeat:no-repeat; background-position: center center;}
+
+#navigation ul.servicenavigation li.help_us a {background-image: url("/img/bn_help_us_blue.png");}
+#navigation ul.servicenavigation li.support_us a {background-image: url("/img/bn_support_us_blue.png");}
+
+
+
+

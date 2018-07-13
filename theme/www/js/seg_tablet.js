@@ -4156,7 +4156,6 @@ Util.Objects["vision"] = new function() {
 
 /*u-form-custom.js*/
 Util.Form.customInit["postalcity"] = function(_form, field) {
-	u.bug("fisk")
 	field._input = u.qs("input.postal", field);
 	field._input_city = u.qs("input.city", field);
 	field._input.field = field;
@@ -4165,11 +4164,9 @@ Util.Form.customInit["postalcity"] = function(_form, field) {
 	field._input_city._form = _form;
 	_form.fields[field._input.name] = field._input;
 	_form.fields[field._input_city.name] = field._input_city;
-	u.bug("fisk2")
 	field._input._label = u.qs("label[for="+field._input.id+"]", field);
 	field._input.val = u.f._value;
 	field._input_city.val = u.f._value;
-	u.bug("fisk3")
 	u.e.addEvent(field._input, "keyup", u.f._updated);
 	u.e.addEvent(field._input, "change", u.f._changed);
 	u.e.addEvent(field._input_city, "keyup", u.f._updated);

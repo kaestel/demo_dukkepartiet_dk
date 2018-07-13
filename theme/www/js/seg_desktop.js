@@ -4458,7 +4458,12 @@ Util.Objects["preview"] = new function() {
 			this.canvas_signature._context.strokeStyle = "#000000";
 			this.canvas_signature._context.lineWidth = 0.5;
 			this.canvas_signature.scene = this;
-			this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
+			if(u.qs("#signature_data").innerHTML) {
+				this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
+			}
+			else {
+				this.canvas_signature.paths = {paths:{}};
+			}
 			this.div_date = u.ae(this._signatureform, "div", {"class":"date"});
 			this.canvas_date = u.ae(this.div_date, "canvas", {"class":"date"});
 			this.canvas_date._offsetLeft = u.absX(this.canvas_date);
@@ -4469,7 +4474,12 @@ Util.Objects["preview"] = new function() {
 			this.canvas_date._context.strokeStyle = "#000000";
 			this.canvas_date._context.lineWidth = 0.5;
 			this.canvas_date.scene = this;
-			this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
+			if(u.qs("#date_data").innerHTML) {
+				this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
+			}
+			else {
+				this.canvas_date.paths = {paths:{}};
+			}
 			this.canvas_signature._repeat = function(event) {
 				var i, draw;
 				this._context.beginPath();
@@ -4544,7 +4554,6 @@ Util.Objects["upload"] = new function() {
 
 /*u-form-custom.js*/
 Util.Form.customInit["postalcity"] = function(_form, field) {
-	u.bug("fisk")
 	field._input = u.qs("input.postal", field);
 	field._input_city = u.qs("input.city", field);
 	field._input.field = field;
@@ -4553,11 +4562,9 @@ Util.Form.customInit["postalcity"] = function(_form, field) {
 	field._input_city._form = _form;
 	_form.fields[field._input.name] = field._input;
 	_form.fields[field._input_city.name] = field._input_city;
-	u.bug("fisk2")
 	field._input._label = u.qs("label[for="+field._input.id+"]", field);
 	field._input.val = u.f._value;
 	field._input_city.val = u.f._value;
-	u.bug("fisk3")
 	u.e.addEvent(field._input, "keyup", u.f._updated);
 	u.e.addEvent(field._input, "change", u.f._changed);
 	u.e.addEvent(field._input_city, "keyup", u.f._updated);

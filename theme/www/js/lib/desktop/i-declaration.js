@@ -424,7 +424,13 @@ Util.Objects["preview"] = new function() {
 			this.canvas_signature._context.strokeStyle = "#000000";
 			this.canvas_signature._context.lineWidth = 0.5;
 			this.canvas_signature.scene = this;
-			this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
+			// this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
+			if(u.qs("#signature_data").innerHTML) {
+				this.canvas_signature.paths = JSON.parse(decodeURIComponent(u.qs("#signature_data").innerHTML).replace(/\\/g, ""));
+			}
+			else {
+				this.canvas_signature.paths = {paths:{}};
+			}
 			
 
 
@@ -439,7 +445,13 @@ Util.Objects["preview"] = new function() {
 			this.canvas_date._context.strokeStyle = "#000000";
 			this.canvas_date._context.lineWidth = 0.5;
 			this.canvas_date.scene = this;
-			this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
+			// this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
+			if(u.qs("#date_data").innerHTML) {
+				this.canvas_date.paths = JSON.parse(decodeURIComponent(u.qs("#date_data").innerHTML).replace(/\\/g, ""));
+			}
+			else {
+				this.canvas_date.paths = {paths:{}};
+			}
 
 
 

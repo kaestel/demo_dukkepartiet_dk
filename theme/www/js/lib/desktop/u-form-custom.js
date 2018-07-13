@@ -2,7 +2,6 @@
 // custom initializations
 Util.Form.customInit["postalcity"] = function(_form, field) {
 
-	u.bug("fisk")
 	field._input = u.qs("input.postal", field);
 	field._input_city = u.qs("input.city", field);
 
@@ -17,7 +16,6 @@ Util.Form.customInit["postalcity"] = function(_form, field) {
 	_form.fields[field._input.name] = field._input;
 	_form.fields[field._input_city.name] = field._input_city;
 
-	u.bug("fisk2")
 
 	// get input label (only label for first input)
 	field._input._label = u.qs("label[for="+field._input.id+"]", field);
@@ -26,7 +24,6 @@ Util.Form.customInit["postalcity"] = function(_form, field) {
 	field._input.val = u.f._value;
 	field._input_city.val = u.f._value;
 
-	u.bug("fisk3")
 
 	// change/update events
 	u.e.addEvent(field._input, "keyup", u.f._updated);

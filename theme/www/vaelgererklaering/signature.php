@@ -1,4 +1,20 @@
 <?php include_once($_SERVER["LOCAL_PATH"]."/includes/segment.php") ?>
+<?php include_once($_SERVER["LOCAL_PATH"]."/includes/functions.inc.php") ?>
+<?
+
+$name            = getPost("name");
+$address1        = getPost("address1");
+$address2        = getPost("address2");
+$postal          = getPost("postal");
+$city            = getPost("city");
+$municipality    = getPost("municipality");
+$cpr_1           = getPost("cpr_1");
+$cpr_2           = getPost("cpr_2");
+
+$date_data       = getPost("date_data");
+$signature_data  = getPost("signature_data");
+
+?>
 <!DOCTYPE html>
 <html lang="DA">
 <head>
@@ -46,21 +62,21 @@
 	</div>
 
 	<div class="signatureform">
-		<div class="name">asdf</div>
-		<div class="address1">asdf</div>
-		<div class="address2"></div>
-		<div class="postal"><span>1</span><span>2</span><span>3</span><span>1</span></div>
-		<div class="city">123123</div>
-		<div class="municipality">sdfasf</div>
-		<div class="cpr_1"><span>1</span><span>2</span><span>3</span><span>1</span><span>2</span><span>3</span></div>
-		<div class="cpr_2"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+		<div class="name"><?= $name ?></div>
+		<div class="address1"><?= $address1 ?></div>
+		<div class="address2"><?= $address2 ?></div>
+		<div class="postal"><span><?= implode("</span><span>", str_split($postal)) ?></span></div>
+		<div class="city"><?= $city ?></div>
+		<div class="municipality"><?= $municipality ?></div>
+		<div class="cpr_1"><span><?= implode("</span><span>", str_split($cpr_1)) ?></span></div>
+		<div class="cpr_2"><span><?= implode("</span><span>", str_split($cpr_2)) ?></span></div>
 	</div>
 
 	<form name="approve" action="/vaelgererklaering/preview" method="post">
 		<!--input type="hidden" id="approved" name="approved" value="0" /-->
 		<!--input type="hidden" id="slug" name="slug" value="dukkepartiet" /-->
-		<input type="hidden" id="date_data" name="date_data" value="" />
-		<input type="hidden" id="signature_data" name="signature_data" value="" />
+		<input type="hidden" id="date_data" name="date_data" value="<?= $date_data ?>" />
+		<input type="hidden" id="signature_data" name="signature_data" value="<?= $signature_data ?>" />
 
 		<ul class="actions">
 			<li class="preview"><input type="submit" value="Godkend"></li>

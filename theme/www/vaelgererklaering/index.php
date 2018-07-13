@@ -1,4 +1,20 @@
 <?php include_once($_SERVER["LOCAL_PATH"]."/includes/segment.php") ?>
+<?php include_once($_SERVER["LOCAL_PATH"]."/includes/functions.inc.php") ?>
+<?
+
+$name            = getPost("name");
+$address1        = getPost("address1");
+$address2        = getPost("address2");
+$postal          = getPost("postal");
+$city            = getPost("city");
+$municipality    = getPost("municipality");
+$cpr_1           = getPost("cpr_1");
+$cpr_2           = getPost("cpr_2");
+
+$date_data       = getPost("date_data");
+$signature_data  = getPost("signature_data");
+
+?>
 <!DOCTYPE html>
 <html lang="DA">
 <head>
@@ -43,33 +59,33 @@
 
 			<div class="field string required">
 				<label for="name">Navn</label>
-				<input type="text" name="name" id="name" value="" />
+				<input type="text" name="name" id="name" value="<?= $name ?>" />
 			</div>
 
 			<div class="field string required">
 				<label for="address1">Adresse 1</label>
-				<input type="text" name="address1" id="address1" value="" />
+				<input type="text" name="address1" id="address1" value="<?= $address1 ?>" />
 			</div>
 
 			<div class="field string">
 				<label for="address2">Adresse 2</label>
-				<input type="text" name="address2" id="address2" value="" />
+				<input type="text" name="address2" id="address2" value="<?= $address2 ?>" />
 			</div>
 
 			<div class="field postalcity required">
 				<label for="postal">Postnr. og by</label>
-				<input type="tel" name="postal" class="postal" id="postal" value="" />
-				<input type="text" name="city" class="city" value="" />
+				<input type="tel" name="postal" class="postal" id="postal" value="<?= $postal ?>" />
+				<input type="text" name="city" class="city" value="<?= $city ?>" />
 			</div>
 
 			<div class="field string required">
 				<label for="municipality">Kommune</label>
-				<input type="text" name="municipality" id="municipality" value="" />
+				<input type="text" name="municipality" id="municipality" value="<?= $municipality ?>" />
 			</div>
 
 			<div class="field cpr required">
 				<label for="cpr">CPR</label>
-				<input type="tel" name="cpr_1" value="" id="cpr" class="cpr1" /><span>-</span><input type="tel" name="cpr_2" value="" class="cpr2" />
+				<input type="tel" name="cpr_1" value="<?= $cpr_1 ?>" id="cpr" class="cpr1" /><span>-</span><input type="tel" name="cpr_2" value="<?= $cpr_2 ?>" class="cpr2" />
 			</div>
 
 		</fieldset>
